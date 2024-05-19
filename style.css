@@ -2,10 +2,15 @@
     box-sizing: border-box;
 }
 
+#library{
+    display:grid;
+    grid-template-columns:repeat(4,auto);
+    row-gap: 1rem;
+}
+
 .card{
     box-shadow: 5px 10px 10px black ;
-    /* padding:0; */
-    transition: all 1s ease;
+    transition: all 0.5s ease;
 
 }
 
@@ -41,3 +46,20 @@
 .card-body{
     padding-left: 1rem;
 }
+
+
+/* not done yet */
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+    .head{
+        position: stick;
+        width:100%;
+    }
+    #library{
+        display:grid;
+        grid-template-columns:repeat(2,auto);
+        row-gap: 1rem;
+     }
+  }

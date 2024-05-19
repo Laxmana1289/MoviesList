@@ -2179,6 +2179,11 @@ function addItems(movies){
         myButton.addEventListener('click',incr);
         myButton.classList.add('btn')
         myButton.classList.add("btn-outline-info")
+        // data-bs-toggle="modal" 
+        //data-bs-target="#exampleModal"
+        myButton.setAttribute('data-bs-toggle',"modal");
+        myButton.setAttribute("data-bs-target","#myModal");
+       
         
         itemdiv.append(title,year,gen,director,myButton);
         itemdiv.classList.add("card-body")
@@ -2192,16 +2197,19 @@ function addItems(movies){
 
 function incr(e){
     if(e.target.textContent == 'Add to favorite ❤'){
-        e.target.textContent = "Remove from favorite 💔";
+        document.getElementById('mt').textContent = "Add to Favorite List 😊"
+        document.getElementById('mb').textContent="This movie Added to your Favorite movies List";
         count++;
-        counter.textContent = count;
+        counter.textContent = "💕"+count;
+        e.target.textContent = "Remove from favorite 💔";
     }
     else{
         e.target.textContent = 'Add to favorite ❤'
+        document.getElementById('mt').textContent= "Remove from favorite List 😢";
+        document.getElementById('mb').textContent = "This movie removed from your favourite List"
         count--;
-        counter.textContent = count;
+        counter.textContent = "💕"+count;
     }
     console.log(e)
-
 }
 addItems(movies);
