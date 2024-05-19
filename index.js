@@ -2128,6 +2128,10 @@ movies = [
     }
 ]
 
+let count = 0;
+
+const counter = document.getElementById("count");
+
 console.log(movies[0]["director"]);
 
 const items = document.getElementById('library');
@@ -2157,13 +2161,39 @@ function addItems(movies){
         plot.innerText = "plot :" +ele["plot"];
         plot.classList.add("card-text")
 
-
+        const gen = document.createElement("div");
+        ele["genres"].forEach(function(ele){
+            var link = document.createElement("a");
+            link.href = '#';
+            console.log(ele);
+            link.textContent = ele +" ,";
+            gen.appendChild(link);
+        })
         
-        item.append(image,title,year,director,plot);
+        const myButton = document.createElement("button");
+        myButton.textContent = "Add to favorite ❤";
+        myButton.addEventListener('click',incr);
+        
+        item.append(image,title,year,director,gen,plot,myButton);
         items.appendChild(item);
         
 
     })
+
 }
 
+function incr(e){
+    if(e.target.textContent == 'Add to favorite ❤'){
+        e.target.textContent = "Remove from favorite 💔";
+        count++;
+        counter.textContent = count;
+    }
+    else{
+        e.target.textContent = 'Add to favorite ❤'
+        count--;
+        counter.textContent = count;
+    }
+    console.log(e)
+
+}
 addItems(movies);
