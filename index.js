@@ -2139,42 +2139,50 @@ const items = document.getElementById('library');
 function addItems(movies){
     movies.forEach(function(ele){
         const item = document.createElement('div');
-        item.classList.add('oneCard');
         item.classList.add('card');
         item.style ="width: 18rem";
         item.classList.add("border")
         item.classList.add("border-dark")
 
+        const itemdiv = document.createElement("div");
+
         const image = document.createElement('img');
         image.setAttribute('src',ele["posterUrl"]);
+        image.classList.add("image");
         
         const title = document.createElement('h3');
         title.textContent= ele["title"]
 
-        const year = document.createElement('p');
+        const year = document.createElement('div');
         year.textContent = "released in : "+ele["year"];
 
         const director = document.createElement('p');
-        director.innerText = "director :"+ ele["director"];
+        director.textContent = "director : "+ ele["director"];
 
-        const plot = document.createElement('p');
-        plot.innerText = "plot :" +ele["plot"];
-        plot.classList.add("card-text")
+        const plot = document.createElement('div');
+        plot.textContent = "actors : " +ele["actors"];
 
         const gen = document.createElement("div");
+        gen.textContent = "genres : "
         ele["genres"].forEach(function(ele){
             var link = document.createElement("a");
             link.href = '#';
             console.log(ele);
-            link.textContent = ele +" ,";
-            gen.appendChild(link);
+            link.textContent = ele;
+            var space = document.createElement('span');
+            space.textContent ="        "
+            gen.append(link,space);
         })
         
         const myButton = document.createElement("button");
         myButton.textContent = "Add to favorite ❤";
         myButton.addEventListener('click',incr);
+        myButton.classList.add('btn')
+        myButton.classList.add("btn-outline-info")
         
-        item.append(image,title,year,director,gen,plot,myButton);
+        itemdiv.append(title,year,gen,director,myButton);
+        itemdiv.classList.add("card-body")
+        item.append(image,itemdiv);
         items.appendChild(item);
         
 
