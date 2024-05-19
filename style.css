@@ -61,8 +61,13 @@
         width:100%;
     }
     #library{
-        display:grid;
-        grid-template-columns:repeat(1,auto);
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
+     }
+
+     .card{
+        margin-bottom: 1rem;
      }
   }
