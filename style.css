@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 #library{
@@ -30,6 +31,7 @@
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: sticky;
+    width: 100%;
     top:0px;
     z-index: 1;
 }
@@ -49,17 +51,19 @@
 
 
 /* not done yet */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 280px) {
     body {
       background-color: lightblue;
     }
     .head{
-        position: stick;
+        height:50px;
+        position: sticky;
         width:100%;
     }
     #library{
-        display:grid;
-        grid-template-columns:repeat(2,auto);
-        row-gap: 1rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
      }
   }
