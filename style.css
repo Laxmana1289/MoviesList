@@ -80,7 +80,7 @@ body{
     
     body {
       background-color: lightblue;
-      margin:0;
+      margin:1rem;
     }
     .head{
         height:50px;
@@ -94,8 +94,9 @@ body{
 
      .card{
         margin-bottom: 1rem;
-        width:200px;
+        width:300px;
         display:flex;
+        flex-direction:row;
         justify-content: center;
         align-items: center;
      }
@@ -103,6 +104,5 @@ body{
      .card img{
         border-radius: 10px;
      }
-
      
   }
