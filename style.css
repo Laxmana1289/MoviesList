@@ -3,20 +3,15 @@
     scroll-behavior: smooth;
 }
 
-#library{
-    display:grid;
-    grid-template-columns:repeat(4,auto);
-    row-gap: 1rem;
+:root{
+    display: flex;
+    justify-content: center;
+    margin:5rem;
+    margin-top:0;
 }
 
-.card{
-    box-shadow: 5px 10px 10px black ;
-    transition: all 0.5s ease;
-
-}
-
-.card:hover{
-    transform:scale(1.05)
+body{
+    
 }
 
 .head{
@@ -28,15 +23,37 @@
     align-items: center;
     padding-left: 50px;
     padding-right: 30px;
+    position: sticky;
+    z-index: 1000;
+    top: 0px;
+
     font-weight: bold;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    position: sticky;
-    width: 100%;
-    top:0px;
-    z-index: 1;
+    /* width: 100%; */
+    
 }
 
-.image{
+
+#library{
+    display:grid;
+    grid-template-columns:repeat(3,auto);
+    column-gap:10rem;
+    row-gap: 2rem;;
+}
+
+.card{
+    box-shadow: 5px 10px 10px #000000 ;
+    transition: all 0.5s ease;
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
+
+.card:hover{
+    transform:scale(1.05)
+}
+
+.card img{
     height: 200px;
 }
 
@@ -45,20 +62,30 @@
     bottom:0%;
 }
 
-.card-body{
-    padding-left: 1rem;
+@media only screen and (max-width:800px) {
+    
+    #library{
+        display:grid;
+        grid-template-columns:repeat(2,auto);
+        gap:1rem;
+    }
+
+    body{
+        background-color: lightgrey;
+    }
+    
 }
 
-
 /* not done yet */
-@media only screen and (max-width: 280px) {
+@media only screen and (max-width: 450px) {
+    :root{
+        margin:0;
+    }
     body {
       background-color: lightblue;
     }
     .head{
         height:50px;
-        position: sticky;
-        width:100%;
     }
     #library{
         display:flex;

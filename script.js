@@ -2128,6 +2128,7 @@ movies = [
     }
 ]
 
+console.log(movies);
 let count = 0;
 
 const counter = document.getElementById("count");
@@ -2140,31 +2141,31 @@ function addItems(movies){
     movies.forEach(function(ele){
         const item = document.createElement('div');
         item.classList.add('card');
-        item.style ="width: 18rem";
+        // item.style ="width: 18rem"; //responsiveness will damage if give width to an element
         item.classList.add("border")
         item.classList.add("border-dark")
 
         const itemdiv = document.createElement("div");
 
         const image = document.createElement('img');
-        image.setAttribute('src',ele["posterUrl"]);
+        image.setAttribute('src',ele.posterUrl);
         image.classList.add("image");
         
         const title = document.createElement('h3');
-        title.textContent= ele["title"]
+        title.textContent= ele.title
 
         const year = document.createElement('div');
-        year.textContent = "released in : "+ele["year"];
+        year.textContent = "released in : "+ele.year;
 
         const director = document.createElement('p');
-        director.textContent = "director : "+ ele["director"];
+        director.textContent = "director : "+ ele.director;
 
         const plot = document.createElement('div');
-        plot.textContent = "actors : " +ele["actors"];
+        plot.textContent = "actors : " +ele.actors;
 
         const gen = document.createElement("div");
         gen.textContent = "genres : "
-        ele["genres"].forEach(function(ele){
+        ele.genres.forEach(function(ele){
             var link = document.createElement("a");
             link.href = '#';
             console.log(ele);
